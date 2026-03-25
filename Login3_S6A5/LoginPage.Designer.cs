@@ -28,37 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             panel1 = new Panel();
+            label2 = new Label();
+            panel2 = new Panel();
             checkBox1 = new CheckBox();
             label1 = new Label();
             Loginbutton = new Button();
             Passwordtext = new TextBox();
             Logintext = new TextBox();
-            panel2 = new Panel();
-            label2 = new Label();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.White;
+            panel1.Anchor = AnchorStyles.None;
+            panel1.BackColor = Color.WhiteSmoke;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(panel2);
             panel1.Controls.Add(checkBox1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(Loginbutton);
             panel1.Controls.Add(Passwordtext);
             panel1.Controls.Add(Logintext);
-            panel1.Location = new Point(142, 0);
+            panel1.Location = new Point(309, 61);
             panel1.Name = "panel1";
-            panel1.Size = new Size(511, 451);
+            panel1.Size = new Size(843, 623);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.ForeColor = Color.Green;
+            label2.Location = new Point(275, 239);
+            label2.Name = "label2";
+            label2.Size = new Size(297, 21);
+            label2.TabIndex = 7;
+            label2.Text = "Please Enter your Credentials to Continue";
+            label2.Click += label2_Click;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.None;
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.Location = new Point(-1, -1);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(843, 181);
+            panel2.TabIndex = 6;
+            // 
             // checkBox1
             // 
+            checkBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(207, 280);
+            checkBox1.Location = new Point(360, 388);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(108, 19);
             checkBox1.TabIndex = 5;
@@ -68,75 +96,67 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(197, 180);
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Segoe UI", 15F);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(360, 196);
             label1.Name = "label1";
-            label1.Size = new Size(132, 15);
+            label1.Size = new Size(150, 28);
             label1.TabIndex = 4;
-            label1.Text = "Greetings! please log in.";
+            label1.Text = "Welcome Back!!";
+            label1.Click += label1_Click;
             // 
             // Loginbutton
             // 
-            Loginbutton.Location = new Point(212, 305);
+            Loginbutton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            Loginbutton.BackColor = Color.MediumSeaGreen;
+            Loginbutton.BackgroundImageLayout = ImageLayout.None;
+            Loginbutton.Location = new Point(242, 457);
             Loginbutton.Name = "Loginbutton";
-            Loginbutton.Size = new Size(103, 26);
+            Loginbutton.Size = new Size(373, 40);
             Loginbutton.TabIndex = 3;
             Loginbutton.Text = "Login";
-            Loginbutton.UseVisualStyleBackColor = true;
+            Loginbutton.UseVisualStyleBackColor = false;
             Loginbutton.Click += Loginbutton_Click;
             // 
             // Passwordtext
             // 
-            Passwordtext.Location = new Point(160, 251);
+            Passwordtext.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Passwordtext.Location = new Point(242, 346);
             Passwordtext.Name = "Passwordtext";
             Passwordtext.PasswordChar = '*';
             Passwordtext.PlaceholderText = "Password";
-            Passwordtext.Size = new Size(204, 23);
+            Passwordtext.Size = new Size(373, 23);
             Passwordtext.TabIndex = 2;
             // 
             // Logintext
             // 
-            Logintext.Location = new Point(160, 198);
+            Logintext.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Logintext.BorderStyle = BorderStyle.FixedSingle;
+            Logintext.Location = new Point(242, 303);
             Logintext.Name = "Logintext";
             Logintext.PlaceholderText = "Username";
-            Logintext.Size = new Size(204, 23);
+            Logintext.Size = new Size(373, 23);
             Logintext.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Green;
-            panel2.Controls.Add(label2);
-            panel2.Location = new Point(140, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(513, 147);
-            panel2.TabIndex = 6;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(213, 81);
-            label2.Name = "label2";
-            label2.Size = new Size(105, 30);
-            label2.TabIndex = 0;
-            label2.Text = "Welcome!";
+            Logintext.TextChanged += Logintext_TextChanged;
             // 
             // LoginPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LimeGreen;
-            ClientSize = new Size(800, 450);
-            Controls.Add(panel2);
+            BackColor = Color.DarkGreen;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1456, 795);
             Controls.Add(panel1);
+            DoubleBuffered = true;
             Name = "LoginPage";
             Text = "Login Page";
             Load += LoginPage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
