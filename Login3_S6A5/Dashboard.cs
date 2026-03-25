@@ -28,10 +28,14 @@ namespace Login3_S6A5
 
         private void button1_Click(object sender, EventArgs e)
         {
-           Dashboard db = new Dashboard(label1.Text, label2.Text);
             LoginPage log = new LoginPage();
-           log.Refresh();
-            db.Close();
+            log.Refresh();
+
+            this.Hide();
+
+            log.ShowDialog();
+
+            this.Close();
         }
     }
 }
