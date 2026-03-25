@@ -49,6 +49,7 @@
             Controls.Add(panel1);
             Name = "Profilesave";
             Text = "Profilesave";
+            Load += Profilesave_Load;
             ResumeLayout(false);
         }
 

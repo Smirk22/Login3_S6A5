@@ -16,5 +16,10 @@ namespace Login3_S6A5
         {
             InitializeComponent();
         }
+
+        private void Profilesave_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
