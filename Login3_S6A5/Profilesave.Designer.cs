@@ -108,12 +108,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.ForestGreen;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(809, 482);
             Controls.Add(panel1);
             Name = "Profilesave";
             Text = "Profilesave";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Load += Profilesave_Load;
             ResumeLayout(false);
         }
 

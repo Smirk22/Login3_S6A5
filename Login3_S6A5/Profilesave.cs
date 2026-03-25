@@ -17,7 +17,7 @@ namespace Login3_S6A5
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Profilesave_Load(object sender, EventArgs e)
         {
 
         }
