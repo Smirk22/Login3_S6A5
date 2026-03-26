@@ -1,4 +1,4 @@
-using System.Drawing.Drawing2D;
+﻿using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -58,7 +58,7 @@ namespace Login3_S6A5
                 Profilesave ps = new Profilesave();
                 Dashboard db = new Dashboard(Logintext.Text, email);
 
-                if (result == DialogResult.Yes)
+                if (result == DialogResult.Yes) 
                 {
                     string picsave = "insert into saved (name, email) values (@name, @email)";
                     MySqlCommand savecmd = new MySqlCommand(picsave, con);
@@ -68,65 +68,33 @@ namespace Login3_S6A5
                     string pic = "select profilepic from users where name = @name";
                     MySqlCommand haha = new MySqlCommand(pic, con);
 
-                    haha.Parameters.AddWithValue("@name", Logintext.Text);
-                    object result2 = haha.ExecuteScalar();
-
-                    byte[] imgData = (byte[])result2;
-
-                    using (MemoryStream ms = new MemoryStream(imgData))
-                    {
-                        ps.pictureBox1.Image = Image.FromStream(ms);
+                            if (picResult != null && picResult != DBNull.Value)
+                            {
+                                byte[] imgData = (byte[])picResult;
+                                using (MemoryStream ms = new MemoryStream(imgData))
+                                {
+                                    Profilesave ps = new Profilesave();
+                                    ps.pictureBox1.Image = Image.FromStream(ms);
+                                    // You can show 'ps' or just store the data
+                                }
+                            }
+                        }
 
                         MessageBox.Show("Welcome!");
+                        Dashboard db = new Dashboard(Logintext.Text, email);
                         db.Show();
                         this.Hide();
-                        con.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Account is not recognized.");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Welcome!");
-                    db.Show();
-                    this.Hide();
-                    con.Close();
-                }
-
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Account is not recognized.");
+                MessageBox.Show("Database Error: " + ex.Message);
             }
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            Passwordtext.PasswordChar = checkBox1.Checked ? '\0' : '*';
-        }
-
-        private void LoginPage_Load(object sender, EventArgs e)
-        {
-            RoundPanel(panel1, 25);
-        }
-
-        private void panel1_Resize(object sender, EventArgs e)
-        {
-            RoundPanel(panel1, 25);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Logintext_TextChanged(object sender, EventArgs e)
-        {
-            Logintext.Height = 60;  // pixels
-            Logintext.Size = new Size(200, 60);  // width, h
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
