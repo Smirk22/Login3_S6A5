@@ -71,9 +71,15 @@ namespace Login3_S6A5
                         Dashboard db = new Dashboard(Logintext.Text, email);
 
                         MessageBox.Show("Welcome!");
-                        db.Show();
+
                         this.Hide();
-                        con.Close();
+
+                        db.ShowDialog();
+
+                        this.Close();
+                      
+
+                  
 
                     }
                     else
@@ -84,7 +90,7 @@ namespace Login3_S6A5
 
                         if (trynumer >= 4)
                         {
-                            MessageBox.Show("Too many failed attempts. Application will now close.");
+                            MessageBox.Show("Too many failed attempts. Locked down for 10 seconds.");
                             label3.Text = num.ToString();
                             label3.Visible = true;
                             timer1.Start();

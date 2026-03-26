@@ -96,6 +96,7 @@
             Controls.Add(panel1);
             Name = "Dashboard";
             Text = "Dashboard";
+            Load += Dashboard_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

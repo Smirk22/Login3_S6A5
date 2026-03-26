@@ -21,17 +21,17 @@ namespace Login3_S6A5
             InitializeComponent();
             label1.Text = username;
             label2.Text = email;
-            
+
         }
 
         public void Dashboard_Load(object sender, EventArgs e)
         {
-            LoginPage login = new LoginPage();
             Profilesave ps = new Profilesave();
+            LoginPage login = new LoginPage();
             DialogResult result = MessageBox.Show("Do you want to save your profile picture?", "Save Profile Picture", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            string con = "server = localhost; database = accounts; uid = root; pwd =;";
-            MySqlConnection quo = new MySqlConnection(con);
+            string noc = "server = localhost; database = accounts; uid = root; pwd =;";
+            MySqlConnection quo = new MySqlConnection(noc);
             quo.Open();
 
             if (result == DialogResult.Yes)
@@ -85,6 +85,11 @@ namespace Login3_S6A5
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dashboard_Load_1(object sender, EventArgs e)
         {
 
         }
