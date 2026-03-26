@@ -9,9 +9,25 @@ namespace Login3_S6A5
 {
     public partial class LoginPage : Form
     {
+        int trynumer = +1;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int num = Convert.ToInt32(label3.Text);
+            num--;
+            label3.Text = num.ToString();
+            if (num <= 0)
+            {
+                timer1.Stop();
+                label3.Visible = false;
+                Enabled = true;
+            }
+        }
+
         public LoginPage()
         {
             InitializeComponent();
+            timer1.Tick += timer1_Tick;
         }
 
         private void RoundPanel(Control panel, int radius)
@@ -33,7 +49,6 @@ namespace Login3_S6A5
             try
             {
                 Profilesave ps = new Profilesave();
-                DialogResult result = MessageBox.Show("Do you want to save your profile picture?", "Save Profile Picture", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 using (MySqlConnection con = new MySqlConnection(connStr))
                 {
                     con.Open();
@@ -55,49 +70,37 @@ namespace Login3_S6A5
                         string email = bla.ExecuteScalar()?.ToString() ?? "";
                         Dashboard db = new Dashboard(Logintext.Text, email);
 
-                        if (result == DialogResult.Yes)
-                        {
-                            string picsave = "insert into saved (name, email) values (@name, @email)";
-                            MySqlCommand savecmd = new MySqlCommand(picsave, con);
-                            savecmd.Parameters.AddWithValue("@name", Logintext.Text);
-                            savecmd.Parameters.AddWithValue("@email", email);
-
-                            string pic = "select profilepic from users where name = @name";
-                            MySqlCommand haha = new MySqlCommand(pic, con);
-
-                            haha.Parameters.AddWithValue("@name", Logintext.Text);
-                            object result2 = haha.ExecuteScalar();
-
-                            byte[] imgData = (byte[])result2;
-
-                            using (MemoryStream ms = new MemoryStream(imgData))
-                            {
-                                ps.pictureBox1.Image = Image.FromStream(ms);
-
-                                MessageBox.Show("Welcome!");
-                                db.Show();
-                                this.Hide();
-                                con.Close();
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Welcome!");
-                            db.Show();
-                            this.Hide();
-                            con.Close();
-                        }
+                        MessageBox.Show("Welcome!");
+                        db.Show();
+                        this.Hide();
+                        con.Close();
 
                     }
                     else
                     {
                         MessageBox.Show("Account is not recognized.");
+                        trynumer++;
+                        int num = 10;
+
+                        if (trynumer >= 4)
+                        {
+                            MessageBox.Show("Too many failed attempts. Application will now close.");
+                            label3.Text = num.ToString();
+                            label3.Visible = true;
+                            timer1.Start();
+                            Enabled = false;
+                            Logintext.Text = "";
+                            Passwordtext.Text = "";
+
+                        }
+
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+                
             }
         }
 
@@ -134,5 +137,10 @@ namespace Login3_S6A5
         private void label1_Click(object sender, EventArgs e) { }
         private void label2_Click(object sender, EventArgs e) { }
         private void Logintext_TextChanged(object sender, EventArgs e) { }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             panel1 = new Panel();
+            label3 = new Label();
+            linkLabel1 = new LinkLabel();
             label2 = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
@@ -38,7 +41,7 @@
             Loginbutton = new Button();
             Passwordtext = new TextBox();
             Logintext = new TextBox();
-            linkLabel1 = new LinkLabel();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -48,6 +51,7 @@
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.WhiteSmoke;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label3);
             panel1.Controls.Add(linkLabel1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(panel2);
@@ -61,6 +65,28 @@
             panel1.Size = new Size(843, 623);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(417, 275);
+            label3.Name = "label3";
+            label3.Size = new Size(13, 15);
+            label3.TabIndex = 9;
+            label3.Text = "0";
+            label3.Visible = false;
+            label3.Click += label3_Click;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(308, 426);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(212, 15);
+            linkLabel1.TabIndex = 8;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "\"Don't have an account? Register here\"";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // label2
             // 
@@ -157,16 +183,9 @@
             Logintext.TabIndex = 1;
             Logintext.TextChanged += Logintext_TextChanged;
             // 
-            // linkLabel1
+            // timer1
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(308, 426);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(212, 15);
-            linkLabel1.TabIndex = 8;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "\"Don't have an account? Register here\"";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            timer1.Interval = 1000;
             // 
             // LoginPage
             // 
@@ -199,5 +218,7 @@
         private Panel panel3;
         public TextBox Logintext;
         private LinkLabel linkLabel1;
+        private Label label3;
+        private System.Windows.Forms.Timer timer1;
     }
 }
