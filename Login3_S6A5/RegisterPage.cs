@@ -56,8 +56,11 @@ namespace Login3_S6A5
 
         private void lnkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new LoginPage().Show();
+            LoginPage LoginPage = new LoginPage();
             this.Hide();
+            LoginPage.ShowDialog();
+            this.Close();
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
