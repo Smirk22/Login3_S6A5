@@ -32,12 +32,14 @@
             panel1 = new Panel();
             label2 = new Label();
             panel2 = new Panel();
+            panel3 = new Panel();
             checkBox1 = new CheckBox();
             label1 = new Label();
             Loginbutton = new Button();
             Passwordtext = new TextBox();
             Logintext = new TextBox();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -62,7 +64,7 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.BackColor = Color.White;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.Green;
             label2.Location = new Point(275, 239);
@@ -77,10 +79,21 @@
             panel2.Anchor = AnchorStyles.None;
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.Controls.Add(panel3);
             panel2.Location = new Point(-1, -1);
             panel2.Name = "panel2";
             panel2.Size = new Size(843, 181);
             panel2.TabIndex = 6;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Transparent;
+            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
+            panel3.BackgroundImageLayout = ImageLayout.Stretch;
+            panel3.Location = new Point(560, 23);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(279, 142);
+            panel3.TabIndex = 0;
             // 
             // checkBox1
             // 
@@ -98,7 +111,7 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.BackColor = Color.White;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 15F);
             label1.ForeColor = Color.Black;
             label1.Location = new Point(360, 196);
@@ -157,18 +170,20 @@
             Load += LoginPage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private TextBox Logintext;
         private TextBox Passwordtext;
         private Button Loginbutton;
         private Label label1;
         private CheckBox checkBox1;
         private Panel panel2;
         private Label label2;
+        private Panel panel3;
+        public TextBox Logintext;
     }
 }

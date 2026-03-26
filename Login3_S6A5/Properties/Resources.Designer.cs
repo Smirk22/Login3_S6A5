@@ -59,5 +59,15 @@ namespace Login3_S6A5.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _058c6c0e_ca57_44cc_9751_79300043728c_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("058c6c0e-ca57-44cc-9751-79300043728c-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

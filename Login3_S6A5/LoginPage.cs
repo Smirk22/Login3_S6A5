@@ -1,5 +1,6 @@
-using MySql.Data.MySqlClient;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Login3_S6A5
 {
@@ -51,13 +52,45 @@ namespace Login3_S6A5
 
             int count = Convert.ToInt32(cmd.ExecuteScalar());
 
+            DialogResult result = MessageBox.Show("Do you want to save your acccount?", "Save Account", MessageBoxButtons.YesNo);
             if (count == 1)
             {
+                Profilesave ps = new Profilesave();
                 Dashboard db = new Dashboard(Logintext.Text, email);
-                MessageBox.Show("Welcome!");
-                db.Show();
-                this.Hide();
-                con.Close();
+
+                if (result == DialogResult.Yes) 
+                {
+                    string picsave = "insert into saved (name, email) values (@name, @email)";
+                    MySqlCommand savecmd = new MySqlCommand(picsave, con);
+                    savecmd.Parameters.AddWithValue("@name", Logintext.Text);
+                    savecmd.Parameters.AddWithValue("@email", email);
+
+                    string pic = "select profilepic from users where name = @name";
+                    MySqlCommand haha = new MySqlCommand(pic, con);
+
+                    haha.Parameters.AddWithValue("@name", Logintext.Text);
+                    object result2 = haha.ExecuteScalar();
+
+                    byte[] imgData = (byte[])result2;
+
+                    using (MemoryStream ms = new MemoryStream(imgData))
+                    {
+                        ps.pictureBox1.Image = Image.FromStream(ms);
+
+                        MessageBox.Show("Welcome!");
+                        db.Show();
+                        this.Hide();
+                        con.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Welcome!");
+                    db.Show();
+                    this.Hide();
+                    con.Close();
+                }
+
             }
             else
             {

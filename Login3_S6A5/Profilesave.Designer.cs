@@ -29,69 +29,57 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            panel4 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             linkLabel1 = new LinkLabel();
+            label2 = new Label();
+            label1 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(pictureBox3);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(linkLabel1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(panel4);
-            panel1.Controls.Add(panel3);
-            panel1.Controls.Add(panel2);
             panel1.Location = new Point(145, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(511, 451);
             panel1.TabIndex = 1;
             // 
-            // panel2
+            // pictureBox3
             // 
-            panel2.Location = new Point(29, 104);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(118, 102);
-            panel2.TabIndex = 0;
+            pictureBox3.Location = new Point(370, 110);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(107, 94);
+            pictureBox3.TabIndex = 9;
+            pictureBox3.TabStop = false;
             // 
-            // panel3
+            // pictureBox2
             // 
-            panel3.Location = new Point(197, 104);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(118, 102);
-            panel3.TabIndex = 1;
+            pictureBox2.Location = new Point(197, 110);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(107, 94);
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
             // 
-            // panel4
+            // pictureBox1
             // 
-            panel4.Location = new Point(367, 104);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(118, 102);
-            panel4.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(220, 68);
-            label1.Name = "label1";
-            label1.Size = new Size(81, 15);
-            label1.TabIndex = 3;
-            label1.Text = "Recent logins:";
-            label1.Click += label1_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(197, 278);
-            label2.Name = "label2";
-            label2.Size = new Size(128, 15);
-            label2.TabIndex = 4;
-            label2.Text = "If you haven't login yet";
+            pictureBox1.Location = new Point(32, 110);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(107, 94);
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // linkLabel1
             // 
@@ -103,6 +91,24 @@
             linkLabel1.TabStop = true;
             linkLabel1.Text = "click here";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(197, 278);
+            label2.Name = "label2";
+            label2.Size = new Size(128, 15);
+            label2.TabIndex = 4;
+            label2.Text = "If you haven't login yet";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(220, 68);
+            label1.Name = "label1";
+            label1.Size = new Size(81, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Recent logins:";
+            // 
             // Profilesave
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -113,17 +119,22 @@
             Name = "Profilesave";
             Text = "Profilesave";
             Load += Profilesave_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private Panel panel2;
         private Label label1;
-        private Panel panel4;
-        private Panel panel3;
         private Label label2;
         private LinkLabel linkLabel1;
+        public PictureBox pictureBox3;
+        public PictureBox pictureBox2;
+        public PictureBox pictureBox1;
     }
 }

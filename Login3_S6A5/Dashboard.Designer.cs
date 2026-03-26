@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            button1 = new Button();
+            Logoutbut = new Button();
             label2 = new Label();
             label1 = new Label();
+            savebut = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.ForestGreen;
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(savebut);
+            panel1.Controls.Add(Logoutbut);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(1, 0);
@@ -46,15 +48,15 @@
             panel1.Size = new Size(152, 450);
             panel1.TabIndex = 0;
             // 
-            // button1
+            // Logoutbut
             // 
-            button1.Location = new Point(30, 382);
-            button1.Name = "button1";
-            button1.Size = new Size(83, 23);
-            button1.TabIndex = 3;
-            button1.Text = "Log out?";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            Logoutbut.Location = new Point(30, 382);
+            Logoutbut.Name = "Logoutbut";
+            Logoutbut.Size = new Size(83, 23);
+            Logoutbut.TabIndex = 3;
+            Logoutbut.Text = "Log out?";
+            Logoutbut.UseVisualStyleBackColor = true;
+            Logoutbut.Click += button1_Click;
             // 
             // label2
             // 
@@ -75,6 +77,16 @@
             label1.Text = "Name";
             label1.Click += label1_Click;
             // 
+            // savebut
+            // 
+            savebut.Location = new Point(30, 124);
+            savebut.Name = "savebut";
+            savebut.Size = new Size(83, 23);
+            savebut.TabIndex = 4;
+            savebut.Text = "Saved";
+            savebut.UseVisualStyleBackColor = true;
+            savebut.Click += button2_Click;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -93,6 +105,7 @@
         private Panel panel1;
         public Label label1;
         public Label label2;
-        public Button button1;
+        public Button Logoutbut;
+        public Button savebut;
     }
 }

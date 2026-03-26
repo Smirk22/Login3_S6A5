@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,17 @@ namespace Login3_S6A5
         }
 
         private void Profilesave_Load(object sender, EventArgs e)
+        {
+            LoginPage log = new LoginPage();
+
+            string connectionString = "server=localhost;database=accounts;uid=root;pwd=;";
+            MySqlConnection con = new MySqlConnection(connectionString);
+            con.Open();
+
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

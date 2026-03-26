@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -34,6 +35,17 @@ namespace Login3_S6A5
             this.Hide();
 
             log.ShowDialog();
+
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Profilesave ps = new Profilesave();
+
+            this.Hide();
+
+            ps.ShowDialog();
 
             this.Close();
         }
