@@ -66,7 +66,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Location = new Point(197, 110);
+            pictureBox2.Location = new Point(209, 110);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(107, 94);
             pictureBox2.TabIndex = 8;
@@ -74,9 +74,10 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(32, 110);
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(39, 110);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(107, 94);
+            pictureBox1.Size = new Size(106, 94);
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
