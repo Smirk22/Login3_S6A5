@@ -38,6 +38,7 @@
             Loginbutton = new Button();
             Passwordtext = new TextBox();
             Logintext = new TextBox();
+            linkLabel1 = new LinkLabel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -47,6 +48,7 @@
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.WhiteSmoke;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(linkLabel1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(checkBox1);
@@ -155,6 +157,17 @@
             Logintext.TabIndex = 1;
             Logintext.TextChanged += Logintext_TextChanged;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(308, 426);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(212, 15);
+            linkLabel1.TabIndex = 8;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "\"Don't have an account? Register here\"";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // LoginPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -185,5 +198,6 @@
         private Label label2;
         private Panel panel3;
         public TextBox Logintext;
+        private LinkLabel linkLabel1;
     }
 }
