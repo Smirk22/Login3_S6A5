@@ -49,5 +49,10 @@ namespace Login3_S6A5
 
             this.Close();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

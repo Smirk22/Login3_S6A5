@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            savebut = new Button();
             Logoutbut = new Button();
             label2 = new Label();
             label1 = new Label();
-            savebut = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,6 +47,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(152, 450);
             panel1.TabIndex = 0;
+            // 
+            // savebut
+            // 
+            savebut.Location = new Point(30, 124);
+            savebut.Name = "savebut";
+            savebut.Size = new Size(83, 23);
+            savebut.TabIndex = 4;
+            savebut.Text = "Saved";
+            savebut.UseVisualStyleBackColor = true;
+            savebut.Click += button2_Click;
             // 
             // Logoutbut
             // 
@@ -66,6 +76,7 @@
             label2.Size = new Size(36, 15);
             label2.TabIndex = 2;
             label2.Text = "Email";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -76,16 +87,6 @@
             label1.TabIndex = 1;
             label1.Text = "Name";
             label1.Click += label1_Click;
-            // 
-            // savebut
-            // 
-            savebut.Location = new Point(30, 124);
-            savebut.Name = "savebut";
-            savebut.Size = new Size(83, 23);
-            savebut.TabIndex = 4;
-            savebut.Text = "Saved";
-            savebut.UseVisualStyleBackColor = true;
-            savebut.Click += button2_Click;
             // 
             // Dashboard
             // 

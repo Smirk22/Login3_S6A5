@@ -32,6 +32,8 @@ namespace Login3_S6A5
 
             try
             {
+                Profilesave ps = new Profilesave();
+                DialogResult result = MessageBox.Show("Do you want to save your profile picture?", "Save Profile Picture", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 using (MySqlConnection con = new MySqlConnection(connStr))
                 {
                     con.Open();
@@ -51,46 +53,58 @@ namespace Login3_S6A5
                         MySqlCommand bla = new MySqlCommand(emailq, con);
                         bla.Parameters.AddWithValue("@name", Logintext.Text);
                         string email = bla.ExecuteScalar()?.ToString() ?? "";
+                        Dashboard db = new Dashboard(Logintext.Text, email);
 
-                if (result == DialogResult.Yes) 
-                {
-                    string picsave = "insert into saved (name, email) values (@name, @email)";
-                    MySqlCommand savecmd = new MySqlCommand(picsave, con);
-                    savecmd.Parameters.AddWithValue("@name", Logintext.Text);
-                    savecmd.Parameters.AddWithValue("@email", email);
+                        if (result == DialogResult.Yes)
+                        {
+                            string picsave = "insert into saved (name, email) values (@name, @email)";
+                            MySqlCommand savecmd = new MySqlCommand(picsave, con);
+                            savecmd.Parameters.AddWithValue("@name", Logintext.Text);
+                            savecmd.Parameters.AddWithValue("@email", email);
 
-                    string pic = "select profilepic from users where name = @name";
-                    MySqlCommand haha = new MySqlCommand(pic, con);
+                            string pic = "select profilepic from users where name = @name";
+                            MySqlCommand haha = new MySqlCommand(pic, con);
 
-                    haha.Parameters.AddWithValue("@name", Logintext.Text);
-                    object result2 = haha.ExecuteScalar();
+                            haha.Parameters.AddWithValue("@name", Logintext.Text);
+                            object result2 = haha.ExecuteScalar();
 
-                    byte[] imgData = (byte[])result2;
+                            byte[] imgData = (byte[])result2;
 
-                    using (MemoryStream ms = new MemoryStream(imgData))
+                            using (MemoryStream ms = new MemoryStream(imgData))
+                            {
+                                ps.pictureBox1.Image = Image.FromStream(ms);
+
+                                MessageBox.Show("Welcome!");
+                                db.Show();
+                                this.Hide();
+                                con.Close();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Welcome!");
+                            db.Show();
+                            this.Hide();
+                            con.Close();
+                        }
+
+                    }
+                    else
                     {
-                        ps.pictureBox1.Image = Image.FromStream(ms);
-
-                        MessageBox.Show("Welcome!");
-                        db.Show();
-                        this.Hide();
-                        con.Close();
+                        MessageBox.Show("Account is not recognized.");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Welcome!");
-                    db.Show();
-                    this.Hide();
-                    con.Close();
-                }
-
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Account is not recognized.");
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+
+
+
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -110,17 +124,10 @@ namespace Login3_S6A5
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RegisterPage reg = new RegisterPage();
-            reg.Show();
             this.Hide();
+            reg.ShowDialog();
+            this.Close();
         }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            Passwordtext.PasswordChar = checkBox1.Checked ? '\0' : '*';
-        }
-
-        private void LoginPage_Load(object sender, EventArgs e) => RoundPanel(panel1, 25);
-        private void panel1_Resize(object sender, EventArgs e) => RoundPanel(panel1, 25);
 
         // Empty placeholder methods to prevent errors if they are still linked in designer
         private void panel1_Paint(object sender, PaintEventArgs e) { }
