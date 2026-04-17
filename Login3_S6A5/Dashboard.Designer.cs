@@ -29,40 +29,32 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            savebut = new Button();
             Logoutbut = new Button();
             label2 = new Label();
             label1 = new Label();
+            button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.ForestGreen;
-            panel1.Controls.Add(savebut);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(Logoutbut);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(1, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(152, 450);
+            panel1.Size = new Size(174, 600);
             panel1.TabIndex = 0;
-            // 
-            // savebut
-            // 
-            savebut.Location = new Point(30, 124);
-            savebut.Name = "savebut";
-            savebut.Size = new Size(83, 23);
-            savebut.TabIndex = 4;
-            savebut.Text = "Saved";
-            savebut.UseVisualStyleBackColor = true;
-            savebut.Click += button2_Click;
             // 
             // Logoutbut
             // 
-            Logoutbut.Location = new Point(30, 382);
+            Logoutbut.Location = new Point(34, 509);
+            Logoutbut.Margin = new Padding(3, 4, 3, 4);
             Logoutbut.Name = "Logoutbut";
-            Logoutbut.Size = new Size(83, 23);
+            Logoutbut.Size = new Size(95, 31);
             Logoutbut.TabIndex = 3;
             Logoutbut.Text = "Log out?";
             Logoutbut.UseVisualStyleBackColor = true;
@@ -71,9 +63,9 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(20, 52);
+            label2.Location = new Point(23, 69);
             label2.Name = "label2";
-            label2.Size = new Size(36, 15);
+            label2.Size = new Size(46, 20);
             label2.TabIndex = 2;
             label2.Text = "Email";
             label2.Click += label2_Click;
@@ -81,19 +73,29 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(20, 26);
+            label1.Location = new Point(23, 35);
             label1.Name = "label1";
-            label1.Size = new Size(39, 15);
+            label1.Size = new Size(49, 20);
             label1.TabIndex = 1;
             label1.Text = "Name";
             label1.Click += label1_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(35, 120);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Dashboard";
             Text = "Dashboard";
             Load += Dashboard_Load_1;
@@ -108,6 +110,6 @@
         public Label label1;
         public Label label2;
         public Button Logoutbut;
-        public Button savebut;
+        private Button button1;
     }
 }
