@@ -1,6 +1,6 @@
 ﻿namespace Login3_S6A5
 {
-    partial class Form1
+    partial class Accounts
     {
         /// <summary>
         /// Required designer variable.
@@ -75,6 +75,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Location = new Point(25, 280);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(147, 122);
@@ -127,7 +128,7 @@
             Confirm.Text = "Confirm";
             Confirm.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Accounts
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -143,8 +144,9 @@
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Accounts";
+            Text = "Accounts";
+            Load += Accounts_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

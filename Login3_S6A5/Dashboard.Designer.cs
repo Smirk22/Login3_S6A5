@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button3 = new Button();
+            button2 = new Button();
             button1 = new Button();
             Logoutbut = new Button();
             label2 = new Label();
             label1 = new Label();
-            button2 = new Button();
-            button3 = new Button();
             panel2 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -54,6 +54,26 @@
             panel1.Size = new Size(174, 600);
             panel1.TabIndex = 0;
             // 
+            // button3
+            // 
+            button3.Location = new Point(11, 231);
+            button3.Name = "button3";
+            button3.Size = new Size(136, 29);
+            button3.TabIndex = 5;
+            button3.Text = "Student Records";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(11, 129);
+            button2.Name = "button2";
+            button2.Size = new Size(136, 29);
+            button2.TabIndex = 4;
+            button2.Text = "Dashboard";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
+            // 
             // button1
             // 
             button1.Location = new Point(11, 178);
@@ -62,6 +82,7 @@
             button1.TabIndex = 1;
             button1.Text = "Accounts";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
             // Logoutbut
             // 
@@ -94,29 +115,11 @@
             label1.Text = "Name";
             label1.Click += label1_Click;
             // 
-            // button2
-            // 
-            button2.Location = new Point(11, 129);
-            button2.Name = "button2";
-            button2.Size = new Size(136, 29);
-            button2.TabIndex = 4;
-            button2.Text = "Dashboard";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(11, 231);
-            button3.Name = "button3";
-            button3.Size = new Size(136, 29);
-            button3.TabIndex = 5;
-            button3.Text = "Student Records";
-            button3.UseVisualStyleBackColor = true;
-            // 
             // panel2
             // 
-            panel2.Location = new Point(263, 0);
+            panel2.Location = new Point(181, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(654, 600);
+            panel2.Size = new Size(736, 600);
             panel2.TabIndex = 1;
             // 
             // Dashboard
