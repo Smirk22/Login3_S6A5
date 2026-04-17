@@ -35,6 +35,7 @@
             label1 = new Label();
             button2 = new Button();
             button3 = new Button();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(11, 182);
+            button1.Location = new Point(11, 178);
             button1.Name = "button1";
             button1.Size = new Size(136, 29);
             button1.TabIndex = 1;
@@ -111,11 +112,19 @@
             button3.Text = "Student Records";
             button3.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            panel2.Location = new Point(263, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(654, 600);
+            panel2.TabIndex = 1;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Dashboard";
@@ -135,5 +144,6 @@
         private Button button1;
         private Button button2;
         private Button button3;
+        private Panel panel2;
     }
 }
