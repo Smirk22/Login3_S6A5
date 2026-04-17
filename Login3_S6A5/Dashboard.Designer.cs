@@ -29,16 +29,20 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button1 = new Button();
             Logoutbut = new Button();
             label2 = new Label();
             label1 = new Label();
-            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.ForestGreen;
+            panel1.Controls.Add(button3);
+            panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(Logoutbut);
             panel1.Controls.Add(label2);
@@ -48,6 +52,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(174, 600);
             panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(11, 182);
+            button1.Name = "button1";
+            button1.Size = new Size(136, 29);
+            button1.TabIndex = 1;
+            button1.Text = "Accounts";
+            button1.UseVisualStyleBackColor = true;
             // 
             // Logoutbut
             // 
@@ -80,14 +93,23 @@
             label1.Text = "Name";
             label1.Click += label1_Click;
             // 
-            // button1
+            // button2
             // 
-            button1.Location = new Point(35, 120);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            button2.Location = new Point(11, 129);
+            button2.Name = "button2";
+            button2.Size = new Size(136, 29);
+            button2.TabIndex = 4;
+            button2.Text = "Dashboard";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(11, 231);
+            button3.Name = "button3";
+            button3.Size = new Size(136, 29);
+            button3.TabIndex = 5;
+            button3.Text = "Student Records";
+            button3.UseVisualStyleBackColor = true;
             // 
             // Dashboard
             // 
@@ -111,5 +133,7 @@
         public Label label2;
         public Button Logoutbut;
         private Button button1;
+        private Button button2;
+        private Button button3;
     }
 }
