@@ -44,7 +44,7 @@ namespace Login3_S6A5
 
         private void Loginbutton_Click(object sender, EventArgs e)
         {
-            string connStr = "server=localhost;uid=root;password=;database=accounts";
+            string connStr = "server=localhost;uid=root;password=;database=student_auth";
 
             try
             {
@@ -54,9 +54,9 @@ namespace Login3_S6A5
                     con.Open();
 
                     // 1. Verify User exists
-                    string query = "SELECT COUNT(*) FROM users WHERE name = @name AND password = @password";
+                    string query = "SELECT COUNT(*) FROM users WHERE username = @username AND password = @password";
                     MySqlCommand cmd = new MySqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@name", Logintext.Text);
+                    cmd.Parameters.AddWithValue("@username", Logintext.Text);
                     cmd.Parameters.AddWithValue("@password", Passwordtext.Text);
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
@@ -64,9 +64,9 @@ namespace Login3_S6A5
                     if (count == 1)
                     {
                         // 2. SUCCESS: Get Email
-                        string emailq = "SELECT email FROM users WHERE name = @name";
+                        string emailq = "SELECT email FROM users WHERE username = @username";
                         MySqlCommand bla = new MySqlCommand(emailq, con);
-                        bla.Parameters.AddWithValue("@name", Logintext.Text);
+                        bla.Parameters.AddWithValue("@username", Logintext.Text);
                         string email = bla.ExecuteScalar()?.ToString() ?? "";
                         Dashboard db = new Dashboard(Logintext.Text, email);
 
@@ -74,22 +74,22 @@ namespace Login3_S6A5
 
                         DialogResult result = MessageBox.Show("Do you want to save your profile picture?", "Save Profile Picture", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        string noc = "server = localhost; database = accounts; uid = root; pwd =;";
+                        string noc = "server = localhost; database = student_auth; uid = root; pwd =;";
                         MySqlConnection quo = new MySqlConnection(noc);
                         quo.Open();
 
                         if (result == DialogResult.Yes)
                         {
-                            string picsave = "insert into saved (name, email, password, profilepic) values (@name, @email, @password, @profilepic)";
+                            string picsave = "insert into saved (username, email, password, profilepic) values (@username, @email, @password, @profilepic)";
                             MySqlCommand savecmd = new MySqlCommand(picsave, quo);
-                            savecmd.Parameters.AddWithValue("@name", Logintext.Text);
+                            savecmd.Parameters.AddWithValue("@username", Logintext.Text);
                             savecmd.Parameters.AddWithValue("@email", Logintext.Text);
                             savecmd.Parameters.AddWithValue("@password", Passwordtext.Text);
 
-                            string pic = "select profilepic from users where name = @name";
+                            string pic = "select profilepic from users where username = @username";
                             MySqlCommand haha = new MySqlCommand(pic, quo);
 
-                            haha.Parameters.AddWithValue("@name", Logintext.Text);
+                            haha.Parameters.AddWithValue("@username", Logintext.Text);
                             object result2 = haha.ExecuteScalar();
 
                             if (result2 != null && result2 != DBNull.Value)

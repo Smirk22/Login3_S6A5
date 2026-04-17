@@ -41,6 +41,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.BackColor = Color.ForestGreen;
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
@@ -49,16 +50,16 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(1, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(174, 600);
+            panel1.Size = new Size(152, 450);
             panel1.TabIndex = 0;
             // 
             // button3
             // 
-            button3.Location = new Point(11, 231);
+            button3.Location = new Point(10, 173);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(136, 29);
+            button3.Size = new Size(119, 22);
             button3.TabIndex = 5;
             button3.Text = "Student Records";
             button3.UseVisualStyleBackColor = true;
@@ -66,9 +67,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(11, 129);
+            button2.Location = new Point(10, 97);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(136, 29);
+            button2.Size = new Size(119, 22);
             button2.TabIndex = 4;
             button2.Text = "Dashboard";
             button2.UseVisualStyleBackColor = true;
@@ -76,9 +78,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(11, 178);
+            button1.Location = new Point(10, 134);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(136, 29);
+            button1.Size = new Size(119, 22);
             button1.TabIndex = 1;
             button1.Text = "Accounts";
             button1.UseVisualStyleBackColor = true;
@@ -86,10 +89,10 @@
             // 
             // Logoutbut
             // 
-            Logoutbut.Location = new Point(34, 509);
-            Logoutbut.Margin = new Padding(3, 4, 3, 4);
+            Logoutbut.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Logoutbut.Location = new Point(30, 382);
             Logoutbut.Name = "Logoutbut";
-            Logoutbut.Size = new Size(95, 31);
+            Logoutbut.Size = new Size(83, 23);
             Logoutbut.TabIndex = 3;
             Logoutbut.Text = "Log out?";
             Logoutbut.UseVisualStyleBackColor = true;
@@ -98,9 +101,9 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(23, 69);
+            label2.Location = new Point(20, 52);
             label2.Name = "label2";
-            label2.Size = new Size(46, 20);
+            label2.Size = new Size(36, 15);
             label2.TabIndex = 2;
             label2.Text = "Email";
             label2.Click += label2_Click;
@@ -108,28 +111,29 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(23, 35);
+            label1.Location = new Point(20, 26);
             label1.Name = "label1";
-            label1.Size = new Size(49, 20);
+            label1.Size = new Size(39, 15);
             label1.TabIndex = 1;
             label1.Text = "Name";
             label1.Click += label1_Click;
             // 
             // panel2
             // 
-            panel2.Location = new Point(181, 0);
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Location = new Point(158, 0);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(736, 600);
+            panel2.Size = new Size(644, 450);
             panel2.TabIndex = 1;
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Dashboard";
             Text = "Dashboard";
             Load += Dashboard_Load_1;

@@ -16,11 +16,11 @@ namespace Login3_S6A5
     {
         private void LoadUsers()
         {
-            string noc = "server=localhost; database=accounts; uid=root; pwd=;";
+            string noc = "server=localhost; database=student_auth; uid=root; pwd=;";
             MySqlConnection quo = new MySqlConnection(noc);
             quo.Open();
 
-            string query = "SELECT id, name, email, password, profilepic FROM users";
+            string query = "SELECT id, username, email, password FROM users";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, quo);
 
             DataTable dt = new DataTable();

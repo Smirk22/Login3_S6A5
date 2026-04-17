@@ -44,50 +44,57 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(206, 12);
+            dataGridView1.Location = new Point(180, 9);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(750, 520);
+            dataGridView1.Size = new Size(656, 390);
             dataGridView1.TabIndex = 0;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(25, 45);
+            textBox1.Location = new Point(22, 34);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(147, 27);
+            textBox1.Size = new Size(129, 23);
             textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(25, 108);
+            textBox2.Location = new Point(22, 81);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(147, 27);
+            textBox2.Size = new Size(129, 23);
             textBox2.TabIndex = 2;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(25, 170);
+            textBox3.Location = new Point(22, 128);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(147, 27);
+            textBox3.Size = new Size(129, 23);
             textBox3.TabIndex = 3;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(25, 280);
+            pictureBox1.Location = new Point(22, 210);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(147, 122);
+            pictureBox1.Size = new Size(129, 92);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(25, 22);
+            label1.Location = new Point(22, 16);
             label1.Name = "label1";
-            label1.Size = new Size(49, 20);
+            label1.Size = new Size(39, 15);
             label1.TabIndex = 5;
             label1.Text = "Name";
             label1.Click += label1_Click;
@@ -95,44 +102,47 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(25, 85);
+            label2.Location = new Point(22, 64);
             label2.Name = "label2";
-            label2.Size = new Size(46, 20);
+            label2.Size = new Size(36, 15);
             label2.TabIndex = 6;
             label2.Text = "Email";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(25, 147);
+            label3.Location = new Point(22, 110);
             label3.Name = "label3";
-            label3.Size = new Size(70, 20);
+            label3.Size = new Size(57, 15);
             label3.TabIndex = 7;
             label3.Text = "Password";
             // 
             // ImageBox
             // 
+            ImageBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             ImageBox.AutoSize = true;
-            ImageBox.Location = new Point(68, 250);
+            ImageBox.Location = new Point(60, 188);
             ImageBox.Name = "ImageBox";
-            ImageBox.Size = new Size(54, 20);
+            ImageBox.Size = new Size(43, 15);
             ImageBox.TabIndex = 8;
             ImageBox.Text = "Image:";
             // 
             // Confirm
             // 
-            Confirm.Location = new Point(45, 426);
+            Confirm.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Confirm.Location = new Point(39, 320);
+            Confirm.Margin = new Padding(3, 2, 3, 2);
             Confirm.Name = "Confirm";
-            Confirm.Size = new Size(94, 29);
+            Confirm.Size = new Size(82, 22);
             Confirm.TabIndex = 9;
             Confirm.Text = "Confirm";
             Confirm.UseVisualStyleBackColor = true;
             // 
             // Accounts
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(968, 544);
+            ClientSize = new Size(847, 408);
             Controls.Add(Confirm);
             Controls.Add(ImageBox);
             Controls.Add(label3);
@@ -144,6 +154,7 @@
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Accounts";
             Text = "Accounts";
             Load += Accounts_Load;
