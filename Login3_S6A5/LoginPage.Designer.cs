@@ -60,18 +60,19 @@
             panel1.Controls.Add(Loginbutton);
             panel1.Controls.Add(Passwordtext);
             panel1.Controls.Add(Logintext);
-            panel1.Location = new Point(309, 61);
+            panel1.Location = new Point(353, 81);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(843, 623);
+            panel1.Size = new Size(963, 830);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(417, 275);
+            label3.Location = new Point(477, 367);
             label3.Name = "label3";
-            label3.Size = new Size(13, 15);
+            label3.Size = new Size(17, 20);
             label3.TabIndex = 9;
             label3.Text = "0";
             label3.Visible = false;
@@ -80,9 +81,9 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(308, 426);
+            linkLabel1.Location = new Point(352, 568);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(212, 15);
+            linkLabel1.Size = new Size(266, 20);
             linkLabel1.TabIndex = 8;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "\"Don't have an account? Register here\"";
@@ -95,9 +96,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.Green;
-            label2.Location = new Point(275, 239);
+            label2.Location = new Point(314, 319);
             label2.Name = "label2";
-            label2.Size = new Size(297, 21);
+            label2.Size = new Size(371, 28);
             label2.TabIndex = 7;
             label2.Text = "Please Enter your Credentials to Continue";
             label2.Click += label2_Click;
@@ -109,8 +110,9 @@
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
             panel2.Controls.Add(panel3);
             panel2.Location = new Point(-1, -1);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(843, 181);
+            panel2.Size = new Size(963, 241);
             panel2.TabIndex = 6;
             // 
             // panel3
@@ -118,18 +120,20 @@
             panel3.BackColor = Color.Transparent;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.BackgroundImageLayout = ImageLayout.Stretch;
-            panel3.Location = new Point(560, 23);
+            panel3.Location = new Point(640, 31);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(279, 142);
+            panel3.Size = new Size(319, 189);
             panel3.TabIndex = 0;
             // 
             // checkBox1
             // 
             checkBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(360, 388);
+            checkBox1.Location = new Point(411, 517);
+            checkBox1.Margin = new Padding(3, 4, 3, 4);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(108, 19);
+            checkBox1.Size = new Size(132, 24);
             checkBox1.TabIndex = 5;
             checkBox1.Text = "Show Password";
             checkBox1.UseVisualStyleBackColor = true;
@@ -142,9 +146,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 15F);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(360, 196);
+            label1.Location = new Point(411, 261);
             label1.Name = "label1";
-            label1.Size = new Size(150, 28);
+            label1.Size = new Size(190, 35);
             label1.TabIndex = 4;
             label1.Text = "Welcome Back!!";
             label1.Click += label1_Click;
@@ -154,9 +158,10 @@
             Loginbutton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             Loginbutton.BackColor = Color.MediumSeaGreen;
             Loginbutton.BackgroundImageLayout = ImageLayout.None;
-            Loginbutton.Location = new Point(242, 457);
+            Loginbutton.Location = new Point(277, 609);
+            Loginbutton.Margin = new Padding(3, 4, 3, 4);
             Loginbutton.Name = "Loginbutton";
-            Loginbutton.Size = new Size(373, 40);
+            Loginbutton.Size = new Size(426, 53);
             Loginbutton.TabIndex = 3;
             Loginbutton.Text = "Login";
             Loginbutton.UseVisualStyleBackColor = false;
@@ -165,21 +170,24 @@
             // Passwordtext
             // 
             Passwordtext.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            Passwordtext.Location = new Point(242, 346);
+            Passwordtext.Location = new Point(277, 461);
+            Passwordtext.Margin = new Padding(3, 4, 3, 4);
             Passwordtext.Name = "Passwordtext";
             Passwordtext.PasswordChar = '*';
             Passwordtext.PlaceholderText = "Password";
-            Passwordtext.Size = new Size(373, 23);
+            Passwordtext.Size = new Size(426, 27);
             Passwordtext.TabIndex = 2;
+            Passwordtext.TextChanged += Passwordtext_TextChanged;
             // 
             // Logintext
             // 
             Logintext.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Logintext.BorderStyle = BorderStyle.FixedSingle;
-            Logintext.Location = new Point(242, 303);
+            Logintext.Location = new Point(277, 404);
+            Logintext.Margin = new Padding(3, 4, 3, 4);
             Logintext.Name = "Logintext";
             Logintext.PlaceholderText = "Username";
-            Logintext.Size = new Size(373, 23);
+            Logintext.Size = new Size(426, 27);
             Logintext.TabIndex = 1;
             Logintext.TextChanged += Logintext_TextChanged;
             // 
@@ -189,14 +197,15 @@
             // 
             // LoginPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGreen;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1456, 795);
+            ClientSize = new Size(1664, 1055);
             Controls.Add(panel1);
             DoubleBuffered = true;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "LoginPage";
             Text = "Login Page";
             Load += LoginPage_Load;

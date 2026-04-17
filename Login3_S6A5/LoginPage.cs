@@ -72,14 +72,52 @@ namespace Login3_S6A5
 
                         MessageBox.Show("Welcome!");
 
+                        DialogResult result = MessageBox.Show("Do you want to save your profile picture?", "Save Profile Picture", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        string noc = "server = localhost; database = accounts; uid = root; pwd =;";
+                        MySqlConnection quo = new MySqlConnection(noc);
+                        quo.Open();
+
+                        if (result == DialogResult.Yes)
+                        {
+                            string picsave = "insert into saved (name, email, password, profilepic) values (@name, @email, @password, @profilepic)";
+                            MySqlCommand savecmd = new MySqlCommand(picsave, quo);
+                            savecmd.Parameters.AddWithValue("@name", Logintext.Text);
+                            savecmd.Parameters.AddWithValue("@email", Logintext.Text);
+                            savecmd.Parameters.AddWithValue("@password", Passwordtext.Text);
+
+                            string pic = "select profilepic from users where name = @name";
+                            MySqlCommand haha = new MySqlCommand(pic, quo);
+
+                            haha.Parameters.AddWithValue("@name", Logintext.Text);
+                            object result2 = haha.ExecuteScalar();
+
+                            if (result2 != null && result2 != DBNull.Value)
+                            {
+                                byte[] imgBytes = null;
+                                if (ps.pictureBox1.Image != null)
+                                {
+                                    using (MemoryStream ms = new MemoryStream())
+                                    {
+                                        ps.pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                        imgBytes = ms.ToArray();
+                                    }
+                                }
+                                savecmd.Parameters.AddWithValue("@profilepic", imgBytes ?? (object)DBNull.Value);
+
+                                savecmd.ExecuteNonQuery();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Image not found for user: " + Logintext.Text);
+                            }
+                        }
+
                         this.Hide();
 
                         db.ShowDialog();
 
                         this.Close();
-                      
-
-                  
 
                     }
                     else
@@ -106,7 +144,7 @@ namespace Login3_S6A5
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-                
+
             }
         }
 
@@ -145,6 +183,11 @@ namespace Login3_S6A5
         private void Logintext_TextChanged(object sender, EventArgs e) { }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Passwordtext_TextChanged(object sender, EventArgs e)
         {
 
         }
