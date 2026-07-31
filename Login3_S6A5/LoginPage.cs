@@ -48,7 +48,7 @@ namespace Login3_S6A5
 
             try
             {
-                Profilesave ps = new Profilesave();
+       
                 using (MySqlConnection con = new MySqlConnection(connStr))
                 {
                     con.Open();
@@ -71,48 +71,7 @@ namespace Login3_S6A5
                         Dashboard db = new Dashboard(Logintext.Text, email);
 
                         MessageBox.Show("Welcome!");
-
-                        DialogResult result = MessageBox.Show("Do you want to save your profile picture?", "Save Profile Picture", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        string noc = "server = localhost; database = student_auth; uid = root; pwd =;";
-                        MySqlConnection quo = new MySqlConnection(noc);
-                        quo.Open();
-
-                        if (result == DialogResult.Yes)
-                        {
-                            string picsave = "insert into saved (username, email, password, profilepic) values (@username, @email, @password, @profilepic)";
-                            MySqlCommand savecmd = new MySqlCommand(picsave, quo);
-                            savecmd.Parameters.AddWithValue("@username", Logintext.Text);
-                            savecmd.Parameters.AddWithValue("@email", Logintext.Text);
-                            savecmd.Parameters.AddWithValue("@password", Passwordtext.Text);
-
-                            string pic = "select profilepic from users where username = @username";
-                            MySqlCommand haha = new MySqlCommand(pic, quo);
-
-                            haha.Parameters.AddWithValue("@username", Logintext.Text);
-                            object result2 = haha.ExecuteScalar();
-
-                            if (result2 != null && result2 != DBNull.Value)
-                            {
-                                byte[] imgBytes = null;
-                                if (ps.pictureBox1.Image != null)
-                                {
-                                    using (MemoryStream ms = new MemoryStream())
-                                    {
-                                        ps.pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                                        imgBytes = ms.ToArray();
-                                    }
-                                }
-                                savecmd.Parameters.AddWithValue("@profilepic", imgBytes ?? (object)DBNull.Value);
-
-                                savecmd.ExecuteNonQuery();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Image not found for user: " + Logintext.Text);
-                            }
-                        }
-
+                   
                         this.Hide();
 
                         db.ShowDialog();

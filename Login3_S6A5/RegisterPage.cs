@@ -17,7 +17,7 @@ namespace Login3_S6A5
         private void Registerbtn_Click(object sender, EventArgs e)
         {
             // Database Connection
-            string connectionString = "server=localhost;uid=root;password=;database=accounts";
+            string connectionString = "server=localhost;uid=root;password=;database=student_auth";
 
             if (Passwordtxt.Text != ConfirmPasswordtxt.Text)
             {
@@ -30,18 +30,16 @@ namespace Login3_S6A5
                 using (MySqlConnection con = new MySqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = "INSERT INTO users (name, email, password) VALUES (@name, @email, @password)";
+                    string query = "INSERT INTO users (username, email, password) VALUES (@username, @email, @password)";
                     MySqlCommand cmd = new MySqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@name", Nametxt.Text);
+                    cmd.Parameters.AddWithValue("@username", Nametxt.Text);
                     cmd.Parameters.AddWithValue("@email", Emailtxt.Text);
                     cmd.Parameters.AddWithValue("@password", Passwordtxt.Text);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Registration Successful!");
 
-                    // Return to Login
-                    new LoginPage().Show();
-                    this.Close();
+                    
                 }
             }
             catch (Exception ex)
@@ -49,8 +47,9 @@ namespace Login3_S6A5
                 MessageBox.Show("Error: " + ex.Message);
          
             }
-            this.Hide(); // Hide the register page
-            new LoginPage().Show(); // Go back to login
+            this.Hide();
+            new LoginPage().ShowDialog();
+            this.Close();
         }
 
 
